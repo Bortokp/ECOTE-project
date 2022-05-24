@@ -25,27 +25,17 @@ public class SymbolTable {
     }
 
     public void addSymbol(String key, String value) {
-        if (!findSymbol(key)) {
             int index = this.hashFunction(key);
             this.hashList.get(index).put(key, value);
-        } else {
-            Scanner inputReader = new Scanner(System.in);
-            System.out.println("Such symbol already exists do you wish to continue(y/n)");
-            String userInput = inputReader.nextLine();
-            while (!Objects.equals(userInput, "y") && !Objects.equals(userInput, "n")) {
-                System.out.println("Wrong input please type y or n");
-                userInput = inputReader.nextLine();
-            }
-            if (userInput.equals("y")) {
-                int index = this.hashFunction(key);
-                this.hashList.get(index).put(key, value);
-            }
-        }
-
-
     }
 
     public void removeSymbol(String key) {
+        if (findSymbol(key)) {
+            int index = hashFunction(key);
+            this.hashList.get(index).remove(key);
+        } else {
+            System.out.println(key + " Not found\nThere is no table entry with such key");
+        }
     }
 
     public boolean findSymbol(String key) {
@@ -61,9 +51,7 @@ public class SymbolTable {
     public void getSymbol(String key) {
         if (findSymbol(key)) {
             int index = hashFunction(key);
-
-            String y = this.hashList.get(index).get(key);
-            System.out.println("Table index:" + index + ". Key: " + key + ", Value:" + y);
+            System.out.println("Table index:" + index + ". Key: " + key + ", Value:" + this.hashList.get(index).get(key));
 
         } else {
             System.out.println(key + "Not found\nThere is no table entry with such key");
