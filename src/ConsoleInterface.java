@@ -68,6 +68,8 @@ public class ConsoleInterface {
                     myObj.printTable();
                     break;
                 case 6:
+                    myObj.printTableToFile();
+                    break;
                 case 7:
                     myObj.clearTable();
                     break;

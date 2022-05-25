@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -73,6 +75,33 @@ public class SymbolTable {
             System.out.println();
         }
         System.out.println();
+    }
+    public void printTableToFile(){
+        try {
+            FileWriter myWriter = new FileWriter("output.txt");
+            for (int i = 0; i < 8; i++) {
+                if (this.hashList.get(i).isEmpty()) myWriter.write("Table index " + i + ": NULL");
+                else myWriter.write("Table index " + i + ": ");
+                AtomicInteger j= new AtomicInteger();
+                this.hashList.get(i).forEach((x, y) -> {
+
+                    try {
+                        myWriter.write(j+". Key: " + x + ", Value: " + y+" ");
+                    } catch (IOException e) {
+                        System.out.println("An error occurred.");
+                        e.printStackTrace();
+                    }
+                    j.getAndIncrement();
+                });
+                myWriter.write("\n");
+            }
+            myWriter.write("\n");
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
     public void clearTable(){
         for (int i = 0; i < 8; i++) {
