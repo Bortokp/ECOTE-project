@@ -25,18 +25,24 @@ public class TokenizerClass {
         int counter = 0;
         while (d < lenOfFile) {
             c = br.read();
+            if (c==-1){
+                if ((++counter % 2) == 0) {
+                    myObj.addSymbol(keyBuffer, valueBuffer);
+                    break;}
+                break;
+            }
             if (c == 59) {
-                if (++counter % 2 == 0) {
+                if ((++counter % 2) == 0) {
                     valueBuffer = buffer;
                     buffer = "";
-                    System.out.println(valueBuffer);
+                    //System.out.println(valueBuffer);
                     myObj.addSymbol(keyBuffer, valueBuffer);
                     keyBuffer = "";
                     valueBuffer ="";
                 } else {
                     keyBuffer = buffer;
                     buffer = "";
-                    System.out.println(keyBuffer);
+                    //System.out.println(keyBuffer);
                 }
             }
             if (c == 59) {
@@ -56,9 +62,6 @@ public class TokenizerClass {
                 buffer += character;
             }
             d++;
-            if (d==lenOfFile){
-                myObj.addSymbol(keyBuffer, valueBuffer);
-            }
         }
     }
 }
