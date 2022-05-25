@@ -13,7 +13,7 @@ public class ConsoleInterface {
                 3. Delete symbol
                 4. Get symbol
                 5. Print table
-                6. Save table to text file(not implemented)
+                6. Save table to text file
                 7. Clear table
                 8. Quit""");
     }
