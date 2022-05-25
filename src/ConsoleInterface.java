@@ -11,9 +11,9 @@ public class ConsoleInterface {
                 "2. Read .txt file\n" +
                 "3. Delete symbol\n" +
                 "4. Get symbol\n" +
-                "5. Print table\n" +
-                "6. Save table to text file\n" +
-                "7. Clear table\n" +
+                "5. Print table (partially implemented)\n" +
+                "6. Save table to text file(not implemented)\n" +
+                "7. Clear table(not implemented)\n" +
                 "8. Quit");
     }
 

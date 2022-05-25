@@ -23,8 +23,7 @@ public class TokenizerClass {
         String keyBuffer = "";
         String valueBuffer="";
         int counter = 0;
-        while (d < lenOfFile/*(c = br.read()*/) {
-            //d=br2.read();
+        while (d < lenOfFile) {
             c = br.read();
             if (c == 59) {
                 if (++counter % 2 == 0) {
@@ -41,7 +40,7 @@ public class TokenizerClass {
                 }
             }
             if (c == 59) {
-                while (/*(c = br.read()) != -1*/d < lenOfFile) {
+                while (d < lenOfFile) {
                     c=br.read();
                     if (c != 32) {
                         char character = (char) c;
