@@ -14,10 +14,6 @@ public class SymbolTable {
         }
     }
 
-    public List<Map<String, String>> getHashList() {
-        return hashList;
-    }
-
     private int hashFunction(String symbol) {
         int hashedSymbol = 0;
         for (int i = 0; i < symbol.length(); i++) {
@@ -65,11 +61,6 @@ public class SymbolTable {
     }
 
     public void printTable() {
-        /*hashList.forEach(stringStringMap -> {
-            stringStringMap.forEach((x, y) -> {
-                System.out.println("Table index:" + hashFunction(x) + ". Key: " + x + ", Value:" + y);
-            });
-        });*/
         for (int i = 0; i < 8; i++) {
             if (this.hashList.get(i).isEmpty()) System.out.print("Table index " + i + ": NULL");
             else System.out.print("Table index " + i + ": ");
@@ -79,7 +70,14 @@ public class SymbolTable {
                 System.out.print(j+". Key: " + x + ", Value: " + y+" ");
                 j.getAndIncrement();
             });
-            System.out.println("\n");
+            System.out.println();
         }
+        System.out.println();
+    }
+    public void clearTable(){
+        for (int i = 0; i < 8; i++) {
+            this.hashList.get(i).clear();
+        }
+        System.out.println("Table clear successful\n");
     }
 }

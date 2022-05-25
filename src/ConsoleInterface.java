@@ -7,14 +7,15 @@ public class ConsoleInterface {
     }
 
     public void printInterface() {
-        System.out.println("1. Insert symbol\n" +
-                "2. Read .txt file\n" +
-                "3. Delete symbol\n" +
-                "4. Get symbol\n" +
-                "5. Print table (partially implemented)\n" +
-                "6. Save table to text file(not implemented)\n" +
-                "7. Clear table(not implemented)\n" +
-                "8. Quit");
+        System.out.println("""
+                1. Insert symbol
+                2. Read .txt file
+                3. Delete symbol
+                4. Get symbol
+                5. Print table
+                6. Save table to text file(not implemented)
+                7. Clear table
+                8. Quit""");
     }
 
     public void init(SymbolTable myObj, TokenizerClass myObj2) throws IOException {
@@ -68,6 +69,8 @@ public class ConsoleInterface {
                     break;
                 case 6:
                 case 7:
+                    myObj.clearTable();
+                    break;
                 case 8:
                     bool=false;
                     break;

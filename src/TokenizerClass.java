@@ -16,7 +16,6 @@ public class TokenizerClass {
         long lenOfFile = f.length();
         FileReader fr = new FileReader(f);
         BufferedReader br = new BufferedReader(fr);
-        BufferedReader br2 = new BufferedReader(fr);
         int c = 0;
         int d = 0;
         String buffer = "";
