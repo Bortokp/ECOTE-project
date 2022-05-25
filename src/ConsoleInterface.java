@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class ConsoleInterface {
                 "8. Quit");
     }
 
-    public void init(SymbolTable myObj) {
+    public void init(SymbolTable myObj, TokenizerClass myObj2) throws IOException {
         boolean bool = true;
         Scanner inputReader = new Scanner(System.in);
         int userInput;
@@ -48,6 +49,10 @@ public class ConsoleInterface {
                     }
                     break;
                 case 2:
+                    System.out.println("Please specify the path:");
+                    userInputKey = inputReader.nextLine();
+                    myObj2.tokenizer(myObj,userInputKey);
+                    break;
                 case 3:
                     System.out.println("Please insert KEY:");
                     userInputKey = inputReader.nextLine();

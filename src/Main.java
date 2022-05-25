@@ -1,12 +1,10 @@
+import java.io.IOException;
+
 public class Main extends ConsoleInterface {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         SymbolTable tablica = new SymbolTable();
-        tablica.addSymbol("ABC","String");
-        tablica.addSymbol("CBA","String");
-        tablica.addSymbol("WL1","String");
-        tablica.addSymbol("WL2","String");
-        tablica.addSymbol("WL3","String");
+        TokenizerClass tokenizer = new TokenizerClass();
         ConsoleInterface interfacee = new ConsoleInterface();
-        interfacee.init(tablica);
+        interfacee.init(tablica, tokenizer);
     }
     }
